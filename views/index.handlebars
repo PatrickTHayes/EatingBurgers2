@@ -1,0 +1,67 @@
+ <div class="container">
+    <!-- Page Content goes here -->
+    <div class="row">
+      <div class="divider"></div>
+      <div class=" col s12 section">
+          <h1 class="center-align">Eat the Burger!!!</h1>
+      </div>
+
+      
+      <div class="col s4 section">
+          
+          <ul class="collection with-header">
+              <li class="collection-header outerTitle"><h2>Burgers to be devoured</h2></li>
+              {{#each burgers}}
+                {{#unless devoured}}
+                  {{> burgers/burgers-block exists=true}}
+                {{/unless}}
+              {{/each}}
+          </ul>
+      </div>
+      
+      <div class="col s4 section" id="middle">
+        <div class=row>
+            <div class="col s12 section ">
+                <div class="card">
+                    <div class="card-image">
+                      <img src="http://aht.seriouseats.com/images/20090224-koreanburger.jpg">
+                      <span class="card-title"></span>
+                    </div>
+                    <div class="card-content">
+                      <p>This is a very simple app. Input burgers you want to eat through the submit form. When you're ready, hit the devour button to eat them</p>
+                    </div>
+                </div>
+            </div>
+              
+            <div class="divider"></div>
+        </div>
+        <div class=row>
+            <div class="valign-wrapper">
+                <div class = "col s3">
+                    <a class="btn-floating btn-large waves-effect waves-light blue" id="submit"><i class="material-icons">add</i></a>
+                </div>
+                <div class="input-field col s9">
+                  <textarea id="newBurger" class="materialize-textarea"></textarea>
+                  <label for="newBurger">New Burger</label>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <div class="col s4 section">
+          <ul class="collection with-header">
+              <li class="collection-header outerTitle"><h2>Burgers that have been devoured</h2></li>
+              {{#each burgers}}
+                {{#if dataValues.devoured}}
+                  {{> burgers/burgers-block exists=false}}
+                {{/if}}
+              {{/each}}
+          </ul>
+      </div>
+    </div>
+    
+    
+</div>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="/assets/js/burgers.js"></script>
